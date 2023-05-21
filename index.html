@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 06 - task</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <header>Day six - Task</header>
+    <nav>
+      <a href="#mov">Class - Movie</a>
+      <a href="#circle">Class - Circle</a>
+      <a href="#person">Class - Person</a>
+      <a href="#uber">Class - Uber</a>
+    </nav>
+    <div class="wrapper" id="mov">
+      <h1>Class - Movie</h1>
+      <hr />
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+
+    class Movie {
+      constructor(title, studio, rating = "PG") {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+      }
+      getPG(movies) {
+        return movies.filter(movie => movie.rating == "PG");
+      }
+    }
+    let casinoRoyale = new Movie("Casino Royale","Eon Productions", "PG-13");
+    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG-13' }
+
+    casinoRoyale = new Movie("Casino Royale", "Eon Productions");
+    console.log(casinoRoyale); // Movie { titl'Casino Royale',  studio: 'Eon Productions'rating: 'PG' }
+     If there is no rating details then it will take PG as default value
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
+    </div>
+    <div class="wrapper" id="circle">
+      <h1>Class - Circle</h1>
+      <hr />
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+    class Circle {
+      constructor(radius=1,color="red") {
+        this.radius = radius;
+        this.color = color;
+      }
+      get Radius(){
+          return this.radius;
+      }
+      get Color(){
+          return this.color;
+      }
+      get Diameter(){
+          return (this.radius * 2)
+      }
+      set Diameter(diameter){
+          this.radius = diameter/2;
+      }
+      get Area(){
+          return (Math.PI*Math.pow(this.radius,2).toFixed(2));
+      }
+      get Circumference(){
+          return (2 * Math.PI * this.radius).toFixed(2);
+      }
+      get toString(){
+          return `Circle[radius=${this.radius},color=${this.color}]`
+      }
+    }
+          
+    let circle = new Circle(4);
+    console.log("area of circle using radius");
+    console.log(circle.Area);
+    console.log("area of circle using diameter by using setter method");
+    circle.Diameter = 4;
+    console.log(circle.Area);
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
+    </div>
+    <div class="wrapper" id="person">
+      <h1>Class - Person</h1>
+      <hr />
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+    class Person {
+      constructor(firstName, lastName, age, email, company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.company = company;
+      }
+          
+      details() {
+        return `${this.firstName} ${this.lastName} is ${this.age} years old,
+    and he is working in ${this.company}. for moinformation contact him '${this.email}'`
+      }
+    }
+    let arjun = new Person("Arjun","Singh",25,"get2arjunsingh@gmail.com","GUVI");
+    console.log(arjun.details());
+    //output Arjun Singh is 25 years old,
+    and he is working in GUVI. for more information contact him 'get2arjunsingh@gmail.com'
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
+    </div>
+    <div class="wrapper" id="uber">
+      <h1>Class - Uber</h1>
+      <hr />
+      <h3>Code shown below</h3>
+      <code>
+        <pre>
+          
+    class Uber {
+      constructor(name, from, to, distance,carType='UberXL') {
+        this.name = name;
+        this.from = from;
+        this.to = to;
+        this.distance = distance;
+        this.carType = carType;
+      }         
+      fare() {
+          let rate=0;
+          if(this.carType=='UberXL'){
+              rate=5;
+          }else if(this.carType=='Uber Comfort'){
+              rate=10;
+          }else if(this.carType=='Uber Black'){
+              rate=15;
+          }else if(this.carType=='Uber SUV'){
+              rate=20;
+          }else if(this.carType=='Uber WAV'){
+              rate=25;
+          }
+          let fare=this.distance*rate;   
+        return `${this.name} booked Uber in car type ${this.carType} from ${this.from} - to ${this.to}.
+        total distance for this ride is ${this.distance} KM & fare for this ride is ${fare} Rupees.`
+      }
+    }
+    let arjunRide = new Uber("arjun", "tambaram","CMBT",25,"Uber Comfort");
+    console.log(arjunRide.fare());
+
+    //output arjun booked Uber in car type Uber Comfort from tambaram - to CMBT.
+    total distance for this ride is 25 KM & fare for this ride is 250 Rupees.
+    
+    arjunRide = new Uber("arjun", "tambaram","CMBT",20);
+    console.log(arjunRide.fare());
+
+    //output arjun booked Uber in car type UberXL from tambaram - to CMBT.
+    total distance for this ride is 20 KM & fare for this ride is 100 Rupees.
+          
+        </pre>
+      </code>
+      <i class="line"
+        >note : above code already executed in these same page, kindly check in
+        Console.log</i
+      >
+    </div>
+    <script src="./JS/classMovie.js"></script>
+    <script src="./JS/classCircle.js"></script>
+    <script src="./JS/classPerson.js"></script>
+    <script src="./JS/classUber.js"></script>
+  </body>
+</html>
